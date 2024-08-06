@@ -1,0 +1,17 @@
+.header{
+    background: url('/header_img.png') no-repeat;
+    background-size: contain;
+    position: relative;
+    margin: 34px auto;
+    width: 100%;
+    
+    
+    height: 34vw;
+    
+    
+    
+}
+
+.header-contant{
+    animation: fadeIn 3s;
+}

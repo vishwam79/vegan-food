@@ -1,0 +1,21 @@
+.navbar .active{
+    padding-bottom: 1px gray;
+    border-bottom: 2px solid gray;
+cursor: pointer;
+}
+
+@media (max-width:780px) {
+    
+    .navvar-menu{
+        visibility: hidden;
+    }
+
+    .navbar-search-icon{
+        max-width: 30px;
+    }
+
+    .navbar-right{
+        min-width: 200px;
+    }
+}
+

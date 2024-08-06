@@ -1,0 +1,28 @@
+.footer-content-left li,  .footer-content-right li, .footer-content-center li{
+
+    margin-bottom: 10px;
+    cursor: pointer;
+    
+}
+
+.footer-content-left h2,  .footer-content-right h2, .footer-content-center li{
+
+    color: white;
+    
+}
+
+li:hover{
+    color: tomato;
+}
+
+
+
+
+.footer-social-icon img{
+    width: 40px;
+    margin-right: 15px;
+}
+
+.footer-content{
+    width: 85%;
+}
