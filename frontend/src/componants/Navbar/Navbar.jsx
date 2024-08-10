@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 import Menuicon from '../../assets/menu_icon.png'
 import { Link } from 'react-router-dom'
 import { StoreContext } from '../../Context/StoreContext'
-
+import { Navigate } from 'react-router-dom'
 
 const Navbar = ({setShowLogin}) => {
 
@@ -12,7 +12,16 @@ const Navbar = ({setShowLogin}) => {
 
   const [isOpen, setIsOpen]=useState(false);
 
-  const {getTotalCartAmount} = useContext(StoreContext);
+  const {getTotalCartAmount, token, setToken} = useContext(StoreContext);
+
+
+
+  const logOut = ()=>{
+    localStorage.removeItem("token");
+    setToken("");
+    Navigate("/");
+
+  }
 
   return (
 
@@ -44,7 +53,26 @@ const Navbar = ({setShowLogin}) => {
         <div className={getTotalCartAmount()===0 ?"":"dot absolute w-2 h-2 -top-2 -right-2 bg-red-500 rounded-full"}></div>
        
     </div>
-    <button onClick={()=>setShowLogin(true)} className='bg-transparent text-[16px] color-[#49557e] border-red-200 border-[1px] p-2 rounded-md hover:bg-red-200 hover:text-bold hover:animate-bounce '>signin</button>
+    {
+      !token ?<button onClick={()=>setShowLogin(true)} className='border-[1px] border-orange-600 px-2 py-1 rounded-lg hover:bg-orange-500 hover:text-white  '>signin</button>
+      :
+      <div className="navbar-profile">
+        <img src={assets.profile_icon} alt="" />
+        <ul className='navbar-profile-dropdown'>
+          <Link to="/cart"> <li className='flex items-end gap-[10px] cursor-pointer hover:text-orange-600'>
+            <img className='w-[20px]' src={assets.bag_icon} alt="" />Order
+<hr />
+          </li>
+          </Link>
+          <li onClick={logOut} className='flex items-end gap-[10px] cursor-pointer hover:text-orange-600'>
+            <img  className='w-[20px]' src={assets.logout_icon} alt="" />Logout
+          </li>
+
+        </ul>
+
+      </div>
+    }
+    
 
 </div>
 

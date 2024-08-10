@@ -4,16 +4,18 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
-  const {cartItems, food_list, removeFromCart, getTotalCartAmount} = useContext(StoreContext);
+  const {cartItems, food_list, removeFromCart, getTotalCartAmount, url} = useContext(StoreContext);
 
   const navigate = useNavigate();
+
+  
 
   return (
     <div className="cart mt-[100px] ">
       <div className="cart-items">
-        <div className="cart-items-title ">
+        <div className="cart-items-title grid grid-cols-6  bg-gray-50 p-6">
           <p>Items</p>
-          <p>Title</p>
+          <p className='col-span-[1.5]'>Title</p>
           <p>Price</p>
           <p>Quantity</p>
           <p>Total</p>
@@ -27,13 +29,13 @@ const Cart = () => {
           {
             return(
               <>
-              <div className="cart-items-title cart-items-item flex justify-around items-center bg-orange-50 rounded-md">
-                 <img className='w-[70px] rounded-md mb-3 mt-2 ' src={item.image} alt="" />
+              <div className="grid grid-cols-6 shadow-sm rounded-md items-center">
+                 <img className='w-[50px] h-[50px] rounded-md mb-3 mt-2 ' src={url+"/images/"+item.image} alt="" />
                  <p>{item.name}</p>
                  <p>${item.price}</p>
                  <p>{cartItems[item._id]}</p>
                  <p>${item.price*cartItems[item._id]}</p>
-                 <p onClick={()=>removeFromCart(item._id)} className='text-red-500 border-orange-500 border  rounded-full px-2 cursor-pointer '>x</p>
+                 <p onClick={()=>removeFromCart(item._id)} className='text-orange-600 cursor-pointer text-xl font-bold'>x</p>
               </div>
               <hr />
               </>
