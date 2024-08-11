@@ -31,39 +31,33 @@ const Login = ({ setShowLogin }) => {
     event.preventDefault();
 
     let newUrl;
-    
 
-    if (currState==="login") {
-         newUrl = `${url}/api/user/login`;
-    
-        
+    if (currState === "login") {
+      newUrl = `${url}/api/user/login`;
     } else {
-
-        newUrl = `${url}/api/user/register`;
-    
-        
+      newUrl = `${url}/api/user/register`;
     }
 
     // if (currState==="Login") {
     //   newUrl += "/api/user/login"
-      
-    // } 
-    
+
+    // }
+
     // else{
     //   newUrl += "/api/user/register"
-      
+
     // }
 
     const response = await axios.post(newUrl, data);
     if (response.data.success) {
-        console.log("data send");
+      console.log("data send");
+
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
       setShowLogin(false);
       console.log(token);
     } else {
-      alert("somthing wents worng")
-      
+      alert("somthing wents worng");
     }
   };
 
@@ -71,7 +65,6 @@ const Login = ({ setShowLogin }) => {
     <div className="login-popup absolute z-1 w-full h-full bg-[#00000090] flex justify-center items-center">
       <form
         onSubmit={onLogin}
-        
         className="login-popup-container self-center min-w-62 max-w-96 min-h-[300px] text-[#808080] bg-white gap-5 pt-7 rounded-lg pl-5 pr-5"
       >
         <div className="login-title ">
@@ -116,7 +109,7 @@ const Login = ({ setShowLogin }) => {
             placeholder="Password"
             required
           />
-          <button 
+          <button
             type="submit"
             className="bg-orange-500 border-[2px] items-center mx-auto px-8 py-2 rounded-lg text-white font-bold hover:bg-white hover:text-gray-700 hover:border-orange-400"
           >

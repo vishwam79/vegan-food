@@ -57,8 +57,11 @@ const Navbar = ({setShowLogin}) => {
       !token ?<button onClick={()=>setShowLogin(true)} className='border-[1px] border-orange-600 px-2 py-1 rounded-lg hover:bg-orange-500 hover:text-white  '>signin</button>
       :
       <div className="navbar-profile">
+        
         <img src={assets.profile_icon} alt="" />
         <ul className='navbar-profile-dropdown'>
+
+
           <Link to="/cart"> <li className='flex items-end gap-[10px] cursor-pointer hover:text-orange-600'>
             <img className='w-[20px]' src={assets.bag_icon} alt="" />Order
 <hr />
