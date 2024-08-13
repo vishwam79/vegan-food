@@ -6,6 +6,7 @@ import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Home from "./pages/Home/Home";
 import Footer from "./componants/Footer/Footer";
 import Login from './componants/LoginPopuo/Login';
+import Verify from "./pages/verify/Verify";
 
 
 
@@ -27,6 +28,8 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/cart" element={<Cart />} />
           {/* <Route path='/login' element={<Login />} /> */}
+
+          <Route path="/verify" element={< Verify />}> </Route>
 
         </Routes>
        
